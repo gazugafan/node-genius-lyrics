@@ -74,9 +74,13 @@ export class Song {
                 x.querySelectorAll("br").forEach((y) => {
                     y.replaceWith(new html.TextNode("\n"));
                 });
+                x.querySelectorAll("[data-exclude-from-selection=\'true']").forEach((y) => {
+                    y.remove();
+                });
                 return x.text;
             })
             .join("\n")
+            .replace(/\n{3,}/g, "\n\n") //only allow up to two consecutive newlines
             .trim();
 
         if (!lyrics?.length) {

@@ -16,5 +16,5 @@ test("[Unauthorized] Song Client - Search & Lyrics", async (t) => {
     await wait.default();
 
     const lyrics = await song.lyrics();
-    t.true(typeof lyrics === "string" && lyrics.length > 0);
+    t.true(typeof lyrics === "string" && lyrics.length > 0 && lyrics.startsWith('[Verse 1]') && lyrics.endsWith('faded'));
 });

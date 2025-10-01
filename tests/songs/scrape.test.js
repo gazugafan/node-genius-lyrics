@@ -9,5 +9,5 @@ test("[Unauthorized] Song Client - Scrape & Lyrics", async (t) => {
     t.true(song instanceof Genius.ScrapedSong);
 
     const lyrics = song.lyrics();
-    t.true(typeof lyrics === "string" && lyrics.length > 0);
+    t.true(typeof lyrics === "string" && lyrics.length > 0 && lyrics.startsWith('[Verse 1]') && lyrics.endsWith('faded'));
 });
